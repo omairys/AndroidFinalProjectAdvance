@@ -26,7 +26,7 @@ latitude
 
 longitude
 
-7 after saving, the userImage, name, birthday, gender, country can show both on the  Recycler View and on the map Marker. 
+7. after saving, the userImage, name, birthday, gender, country can show both on the  Recycler View and on the map Marker. 
 
-8 you can edit any of the field or delete the whole item like lab test 1 and 2 
+8. you can edit any of the field or delete the whole item like lab test 1 and 2 
 
