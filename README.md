@@ -12,19 +12,19 @@
 
 6. After you click the "add" button, the app go to the edit page. "edit page" has the following field 
 
-name  String  
+- name  String  
 
-birthday  Date  from date picker
+- birthday  Date  from date picker
 
-gender  String  from  Recycler View
+- gender  String  from  Recycler View
 
-userImage from  
+- userImage from  
 
-country from another  Recycler View
+- country from another  Recycler View
 
-latitude    
+- latitude    
 
-longitude
+- longitude
 
 7. after saving, the userImage, name, birthday, gender, country can show both on the  Recycler View and on the map Marker. 
 
