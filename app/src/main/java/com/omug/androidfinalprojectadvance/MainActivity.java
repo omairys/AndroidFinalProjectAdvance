@@ -1,20 +1,32 @@
 package com.omug.androidfinalprojectadvance;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.omug.androidfinalprojectadvance.databinding.ActivityMainBinding;
+import com.omug.androidfinalprojectadvance.ui.home.ListFragment;
+import com.omug.androidfinalprojectadvance.ui.map.MapFragment;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,7 +40,21 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
         setSupportActionBar(binding.appBarMain.toolbar);
+        binding.appBarMain.toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.add_action:
+                        startActivityForResult(new Intent(MainActivity.this, AddLocationActivity.class), 100);
+                        break;
+                    default:
+                }
+                return false;
+            }
+        });
+
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_gallery)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -61,5 +87,28 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    // You must override this method as the second Activity will always send its results to this Activity and then to the Fragment
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.e("resultCode ", "onActivityResult:MAIN " + resultCode +" "+ requestCode);
+        List<Fragment> lsActiveFragments = getSupportFragmentManager().getFragments();
+        for (Fragment fragmentActive : lsActiveFragments) {
+            if (fragmentActive instanceof NavHostFragment) {
+                List<Fragment> lsActiveSubFragments = fragmentActive.getChildFragmentManager().getFragments();
+                for (Fragment fragmentActiveSub : lsActiveSubFragments) {
+                    if (fragmentActiveSub instanceof ListFragment) {
+                        fragmentActiveSub.onActivityResult(requestCode, resultCode, data);
+                    } else if (fragmentActiveSub instanceof MapFragment) {
+                        fragmentActiveSub.onActivityResult(requestCode, resultCode, data);
+                    }
+
+                }
+
+            }
+
+        }
     }
 }

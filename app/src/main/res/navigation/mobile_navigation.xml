@@ -7,19 +7,14 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.omug.androidfinalprojectadvance.ui.home.HomeFragment"
+        android:name="com.omug.androidfinalprojectadvance.ui.home.ListFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_list" />
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.omug.androidfinalprojectadvance.ui.gallery.GalleryFragment"
+        android:name="com.omug.androidfinalprojectadvance.ui.map.MapFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_map" />
 
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.omug.androidfinalprojectadvance.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
 </navigation>
