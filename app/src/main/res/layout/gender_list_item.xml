@@ -27,15 +27,7 @@
                 android:layout_margin="5dp"
                 android:textColor="#000000"
                 android:textSize="22sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_subtitulo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:textColor="#000000"
-                android:textSize="22sp" />
+                android:textStyle="normal|bold" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

@@ -89,11 +89,10 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    // You must override this method as the second Activity will always send its results to this Activity and then to the Fragment
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.e("resultCode ", "onActivityResult:MAIN " + resultCode +" "+ requestCode);
         List<Fragment> lsActiveFragments = getSupportFragmentManager().getFragments();
         for (Fragment fragmentActive : lsActiveFragments) {
             if (fragmentActive instanceof NavHostFragment) {

@@ -25,6 +25,7 @@ import com.omug.androidfinalprojectadvance.Location;
 import com.omug.androidfinalprojectadvance.LocationAdapter;
 import com.omug.androidfinalprojectadvance.LocationDatabase;
 import com.omug.androidfinalprojectadvance.R;
+import com.omug.androidfinalprojectadvance.ui.map.MapFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +43,7 @@ public class ListFragment extends Fragment implements LocationAdapter.OnLocation
         final View view = inflater.inflate(R.layout.fragment_list, container, false);
         setHasOptionsMenu(true);
         displayLocationList();
+
         recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -148,6 +150,7 @@ public class ListFragment extends Fragment implements LocationAdapter.OnLocation
                                 locationAdapter.notifyDataSetChanged();
                                 break;
                             case 1:
+                                ListFragment.this.pos = pos;
                                 startActivityForResult(
                                         new Intent(getActivity(),
                                                 AddLocationActivity.class).putExtra("location", locations.get(pos)), 100);
@@ -162,7 +165,7 @@ public class ListFragment extends Fragment implements LocationAdapter.OnLocation
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.e("resultCode ", "onActivityResult: ListFragment" + resultCode +" "+ requestCode);
+        Log.e("resultCode ", "onActivityResult: ListFragment " + resultCode +" "+ requestCode);
 
         if (requestCode == 100 && resultCode > 0) {
             if (resultCode == 1) {

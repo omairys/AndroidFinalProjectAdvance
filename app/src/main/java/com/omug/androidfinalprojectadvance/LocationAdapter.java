@@ -14,9 +14,9 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.BeanHo
     private List<Location> list;
     private OnLocationItemClick onLocationItemClick;
 
-    public LocationAdapter(List<Location> list, OnLocationItemClick onPersonItemClick) {
+    public LocationAdapter(List<Location> list, OnLocationItemClick onLocationItemClick) {
         this.list = list;
-        this.onLocationItemClick = onPersonItemClick;
+        this.onLocationItemClick = onLocationItemClick;
     }
 
     @Override
@@ -46,7 +46,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.BeanHo
         public BeanHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
-            textViewTitulo = itemView.findViewById(R.id.tv_titulo);
+            textViewTitulo = itemView.findViewById(R.id.tv_gender_item);
             textViewSubtitulo = itemView.findViewById(R.id.tv_subtitulo);
         }
 

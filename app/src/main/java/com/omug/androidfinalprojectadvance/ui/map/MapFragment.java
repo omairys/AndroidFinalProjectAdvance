@@ -93,7 +93,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,  Google
             );
             Log.w("Click", "is "+marker.getTitle().equalsIgnoreCase(currentMark.getTitle()));
             if(marker.getTitle().equalsIgnoreCase(currentMark.getTitle())){
-
+                MapFragment.this.pos = locations.indexOf(location);
+                Log.e("pos ", "mi posicion inicial-----------------------------------------> " + locations.indexOf(location) );
                 startActivityForResult(
                         new Intent(getContext(), AddLocationActivity.class).putExtra("location", location), 100);
                 return true;

@@ -13,20 +13,23 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="12dp"
         android:ems="10"
-        android:hint="Title"
+        android:hint="Name"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/inputSubtitle"
+    <TextView
+        android:id="@+id/inputCountry"
+        style="?editTextStyle"
         android:layout_width="383dp"
         android:layout_height="48dp"
         android:layout_marginTop="10dp"
         android:ems="10"
-        android:hint="Subtitle"
+        android:focusable="false"
+        android:hint="Country"
         android:inputType="textPersonName"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/inputTitle"
         app:layout_constraintStart_toStartOf="@+id/inputTitle"
         app:layout_constraintTop_toBottomOf="@+id/inputTitle" />
@@ -39,9 +42,9 @@
         android:ems="10"
         android:hint="Latitude"
         android:inputType="numberSigned"
-        app:layout_constraintEnd_toEndOf="@+id/inputSubtitle"
-        app:layout_constraintStart_toStartOf="@+id/inputSubtitle"
-        app:layout_constraintTop_toBottomOf="@+id/inputSubtitle" />
+        app:layout_constraintEnd_toEndOf="@+id/inputCountry"
+        app:layout_constraintStart_toStartOf="@+id/inputCountry"
+        app:layout_constraintTop_toBottomOf="@+id/inputCountry" />
 
     <EditText
         android:id="@+id/intputLongitude"
@@ -55,26 +58,76 @@
         app:layout_constraintStart_toStartOf="@+id/inputLatitude"
         app:layout_constraintTop_toBottomOf="@+id/inputLatitude" />
 
+    <EditText
+        android:id="@+id/intputGender"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:focusable="false"
+        android:hint="Gender"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/intputLongitude"
+        app:layout_constraintStart_toStartOf="@+id/intputLongitude"
+        app:layout_constraintTop_toBottomOf="@+id/intputLongitude" />
+
+    <TextView
+        android:id="@+id/inputBdate"
+        style="?editTextStyle"
+        android:layout_width="383dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:focusable="false"
+        android:hint="BirtDate (YYYY-MM-DD)"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/intputGender"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/intputGender"
+        app:layout_constraintTop_toBottomOf="@+id/intputGender" />
+
+
     <Button
         android:id="@+id/button_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:layout_marginBottom="419dp"
+        android:layout_marginTop="10dp"
         android:text="Save"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/intputLongitude"
-        app:layout_constraintStart_toStartOf="@+id/intputLongitude"
-        app:layout_constraintTop_toBottomOf="@+id/intputLongitude" />
+        app:layout_constraintEnd_toEndOf="@+id/inputBdate"
+        app:layout_constraintStart_toStartOf="@+id/inputBdate"
+        app:layout_constraintTop_toBottomOf="@+id/imageProfile" />
 
     <Button
         android:id="@+id/button_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:text="Delete"
         app:layout_constraintEnd_toEndOf="@+id/button_edit"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/button_edit"
         app:layout_constraintTop_toBottomOf="@+id/button_edit" />
+
+
+    <ImageView
+        android:id="@+id/imageProfile"
+        android:layout_width="171dp"
+        android:layout_height="161dp"
+        android:layout_marginTop="17dp"
+        app:layout_constraintStart_toStartOf="@+id/inputBdate"
+        app:layout_constraintTop_toBottomOf="@+id/inputBdate"
+        android:src="@drawable/ic_menu_camera"/>
+
+    <Button
+        android:id="@+id/btn_addImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="71dp"
+        android:text="Add Image"
+        app:layout_constraintEnd_toEndOf="@+id/inputBdate"
+        app:layout_constraintStart_toEndOf="@+id/imageProfile"
+        app:layout_constraintTop_toBottomOf="@+id/inputBdate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
