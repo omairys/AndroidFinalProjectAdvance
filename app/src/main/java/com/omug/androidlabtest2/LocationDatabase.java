@@ -1,14 +1,12 @@
-package com.omug.androidfinalprojectadvance;
+package com.omug.androidlabtest2;
 
 import android.content.Context;
 
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-import androidx.room.TypeConverters;
 
 @Database(entities = {Location.class}, version = 1, exportSchema = false)
-@TypeConverters({Converters.class})
 public abstract class LocationDatabase extends RoomDatabase {
     public abstract LocationDao personDao();
 
@@ -31,9 +29,5 @@ public abstract class LocationDatabase extends RoomDatabase {
             }
         }
         return INSTANCE;
-    }
-
-    public  void cleanUp(){
-        INSTANCE = null;
     }
 }

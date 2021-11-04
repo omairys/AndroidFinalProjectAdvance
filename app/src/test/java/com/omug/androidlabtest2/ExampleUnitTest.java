@@ -1,4 +1,4 @@
-package com.omug.androidfinalprojectadvance;
+package com.omug.androidlabtest2;
 
 import org.junit.Test;
 
