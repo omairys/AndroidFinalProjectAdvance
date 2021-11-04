@@ -1,5 +1,4 @@
-package com.omug.androidlabtest2;
-
+package com.omug.androidfinalprojectadvance;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -12,25 +11,28 @@ import java.util.List;
 @Dao
 public interface LocationDao {
     @Query("SELECT * FROM Location")
-    List<Location>  getAll();
+    List<Location> getAll();
+
+    @Query("SELECT * FROM Location WHERE locationTitle LIKE :title")
+    List<Location> getOne(String title);
 
     /*
      * Insert the object in database
-     * @param person, object to be inserted
+     * @param location, object to be inserted
      */
     @Insert
-    long insertPerson(Location location);
+    long insertLocation(Location location);
 
     /*
      * update the object in database
-     * @param person, object to be updated
+     * @param location, object to be updated
      */
     @Update
     void update(Location updLocation);
 
     /*
      * delete the object from database
-     * @param person, object to be deleted
+     * @param location, object to be deleted
      */
     @Delete
     void delete(Location location);

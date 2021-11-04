@@ -27,31 +27,8 @@
                 android:layout_margin="5dp"
                 android:textColor="#000000"
                 android:textSize="22sp"
-                android:textStyle="bold" />
+                android:textStyle="normal" />
 
-            <TextView
-                android:id="@+id/tv_subtitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:textColor="#000000"
-                android:textSize="22sp" />
-
-            <TextView
-                android:id="@+id/tv_longitude"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:textColor="#000000"
-                android:textSize="22sp" />
-
-            <TextView
-                android:id="@+id/tv_latitude"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:textColor="#000000"
-                android:textSize="22sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
